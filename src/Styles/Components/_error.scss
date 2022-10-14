@@ -1,0 +1,5 @@
+.error {
+    @include flex(center, center);
+    flex-direction: column;
+    margin: auto;
+}

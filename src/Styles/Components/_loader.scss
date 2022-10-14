@@ -1,0 +1,12 @@
+.loader {
+    @include flex(center, center);
+    margin: auto;
+    color: $primary-color;
+    font-size: 25px;
+
+    & span {
+        color: $primary-color;
+        font-size: 25px;
+        margin-left: 5px;
+    }
+}

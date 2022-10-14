@@ -1,23 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import './main.scss';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'jquery/dist/jquery.min.js';
+import 'bootstrap/dist/js/bootstrap.min.js';
+import { Routes, Route } from "react-router-dom";
+import { Navbar } from './Components/Navigation Bar/Navbar';
+import { MenuSidebar } from './Components/Navigation Bar/MenuSidebar';
+import { CartSidebar } from './Components/Navigation Bar/CartSidebar';
+import { Footer } from './Components/Footer/Footer';
+import { HomePage } from './Components/Home Page/HomePage';
+import { Products } from './Components/Products Page/Products';
+import { ProductPage } from './Components/Products Page/SingleProduct';
+import { ShippingPage } from './Components/Other Pages/Shipping';
+import { ContactUsPage } from './Components/Other Pages/ContactUs';
+import { AboutUsPage} from './Components/Other Pages/AboutUs';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar />
+      <MenuSidebar />
+      <CartSidebar />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="products" element={<Products />} />
+        <Route path="products/:productId" element={<ProductPage />} />
+        <Route path="profile" element={<h1>Profile Page</h1>} />
+        <Route path="favorites" element={<h1>Favorites Page</h1>} />
+        <Route path="cart" element={<h1>Shopping Cart</h1>} />
+        <Route path="about" element={<AboutUsPage />} />
+        <Route path="contact" element={<ContactUsPage />} />
+        <Route path="shipping" element={<ShippingPage />} />
+        <Route path="*" element={<h1>404 Page Is Not Found</h1>} />
+      </Routes>
+      <Footer />
     </div>
   );
 }

@@ -1,0 +1,17 @@
+.single-product {
+    display: grid;
+    grid-template-columns: 400px auto;
+    gap: 25px;
+}
+.img-container {
+    width: 400px;
+    height: 400px;
+}
+.product-img img {
+    width: 400px;
+    height: 400px;
+}
+.carousel-control-next-icon, .carousel-control-prev-icon {
+    color: $dark-color;
+    font-size: 30px;
+}

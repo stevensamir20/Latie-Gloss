@@ -1,0 +1,16 @@
+.carousel-button-text {
+    font-size: 30px;
+ }
+ button.btn-outline-light {
+ color: $primary-color;
+ border-color: $primary-color;
+ }
+ button.btn-outline-light:hover, 
+ button.btn-outline-light:active, 
+ button.btn-outline-light:disabled, 
+ button.btn-outline-light:visited, 
+ button.btn-outline-light:focus {
+     color:$light-color;
+     border-color: $primary-color;
+     background-color: $primary-color;
+ }
