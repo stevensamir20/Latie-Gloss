@@ -18,7 +18,6 @@ export const ProductPage = () => {
   const inStock = product?.price > 0;
 
   useEffect(() => {
-    console.log(cartContext.items);
     setLoading(true);
     setError("");
     axios

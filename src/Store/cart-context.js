@@ -8,16 +8,13 @@ const CartContext = React.createContext({
     deleteItem: (itemId) => {}
 });
 
-
-// const getLocalStorageCartItems = localStorage.getItem("cart");
-// const localStorageCartItems = JSON.
-// if ( JSON.parse(localCartGet) ) {
-//     const defaultCartState = 
-// }
 const defaultCartState = {
     items: [],
     totalAmount: 0
 }
+
+const cartInitializer = (initialCartState = defaultCartState) =>
+  JSON.parse(localStorage.getItem("localCart")) || initialCartState;
 
 const cartReducer = (state, action) => {
 
@@ -79,20 +76,18 @@ const cartReducer = (state, action) => {
         }
     }
 
-    return defaultCartState;
+    return cartInitializer;
 }
 
 export const CartProvider = (props) => {
 
-    const [cartState, dispatchCartAction] = useReducer(cartReducer, defaultCartState)
+    const [cartState, dispatchCartAction] = useReducer(cartReducer,[], cartInitializer)
 
-    // useEffect(() => {
-   
-    //     const localCartData =  JSON.stringify(cartState.items);
-    //     const localCart = localStorage.setItem('cart', localCartData)
-    // }, [])
+    useEffect(() => {
+        localStorage.setItem("localCart", JSON.stringify(cartState));
+    }, [cartState]);
     
- 
+
     const addItemToCart = (item) => {
         dispatchCartAction({
             type: 'ADD_TO_CART',
