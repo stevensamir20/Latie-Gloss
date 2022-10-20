@@ -1,8 +1,10 @@
 import React, { useState, useEffect, useRef, useContext } from 'react'
+// eslint-disable-next-line
 import { Link, NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux';
 import { showCartSidebar, showMenuSidebar } from '../../Redux/Actions/actions'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// eslint-disable-next-line
 import { faShoppingCart, faHeart, faBars } from '@fortawesome/free-solid-svg-icons'
 import CartContext from '../../Store/cart-context';
 
@@ -61,11 +63,11 @@ export const Navbar = () => {
       </div>
       <div id="navbar-list">
         <ul id="navbar-list-styling">
-          <li id="list-favorites" className="navbar-list-item d-none d-md-block">
+          {/* <li id="list-favorites" className="navbar-list-item d-none d-md-block">
             <NavLink to="/favorites"> 
               <FontAwesomeIcon icon={faHeart} size="xl" className="nav-icon" />
             </NavLink>
-          </li>
+          </li> */}
           <li id="list-cart" className="navbar-list-item">  
             <Link to="#"> 
               <FontAwesomeIcon onClick={() => dispatch(showCartSidebar())} icon={faShoppingCart} size="xl" className="nav-icon" />

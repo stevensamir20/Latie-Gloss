@@ -1,4 +1,5 @@
 import React from "react"
+// eslint-disable-next-line
 import { faHouse, faTruckFast, faPhone, faHeart, faCartPlus, faCircleQuestion } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
@@ -15,12 +16,12 @@ export const MenuSidebarData = [
     icon: <FontAwesomeIcon icon={faCartPlus} size="xl" className="navbar-menu-icon"/>,
     cName: 'navbar-menu-text'
   },
-  {
-    title: 'Favorites',
-    path: '/favorites',
-    icon: <FontAwesomeIcon icon={faHeart} size="xl" className="navbar-menu-icon"/>,
-    cName: 'navbar-menu-text d-md-none',
-  },
+  // {
+  //   title: 'Favorites',
+  //   path: '/favorites',
+  //   icon: <FontAwesomeIcon icon={faHeart} size="xl" className="navbar-menu-icon"/>,
+  //   cName: 'navbar-menu-text d-md-none',
+  // },
   {
     title: 'Shipping',
     path: '/shipping',
