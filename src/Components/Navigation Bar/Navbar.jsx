@@ -1,16 +1,20 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect, useRef, useContext } from 'react'
 import { Link, NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux';
 import { showCartSidebar, showMenuSidebar } from '../../Redux/Actions/actions'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faShoppingCart, faHeart, faBars } from '@fortawesome/free-solid-svg-icons'
+import CartContext from '../../Store/cart-context';
 
 export const Navbar = () => {
+
+  const cartContext = useContext(CartContext);
+  const cartItemsNumber = 
+  cartContext.items.reduce((currentNumber, item) => { return currentNumber + item.amount;}, 0);
 
   const dispatch = useDispatch();
   const cartOpen = useSelector(state => state.cart)
   const menuOpen = useSelector(state => state.menu)
-  const searchOpen = useSelector(state => state.search)
  
   // State and reference for the navbar background blur
   const [navBackground, setNavBackground] = useState('navbarSolid')
@@ -35,7 +39,7 @@ export const Navbar = () => {
 
   // Function to check if both sidebars are closed
   const isSidebarOpen = ()  =>{
-    if ( menuOpen || cartOpen || searchOpen ) {
+    if ( menuOpen || cartOpen ) {
       return true
     }
     else { return false }
@@ -65,7 +69,7 @@ export const Navbar = () => {
           <li id="list-cart" className="navbar-list-item">  
             <Link to="#"> 
               <FontAwesomeIcon onClick={() => dispatch(showCartSidebar())} icon={faShoppingCart} size="xl" className="nav-icon" />
-              <span className="cart-count">0</span>
+              {cartItemsNumber > 0 && <span className="cart-count">{cartItemsNumber}</span>}
             </Link>
           </li>
         </ul>

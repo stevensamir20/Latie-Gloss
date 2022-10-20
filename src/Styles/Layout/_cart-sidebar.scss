@@ -47,30 +47,10 @@
 .navbar-cart-icon {
     margin-right: 10px;
     margin-left: 10px;
-}
-.navbar-cart-text {
-    @include flex(center, center);
-    height: 60px;
-    margin: 10px 0; 
 
-    &-title {
-        font-size: 22px;
-        font-weight: bold;
-        padding-top: 5px;
-    }
-    & a {
-        @include flex(none, center);
-        text-decoration: none;
-        color: $light-color;
-        font-size: 18px;
-        height: 100%;
-        width: 95%;
-        border-radius: 5px;
-
-        &:hover {
-            color: $primary-color;
-            background-color: $light-color;
-        }
+    &:hover {
+        cursor: pointer;
+        color: $dark-color;
     }
 }
 @media (max-width: 450px) {
@@ -107,7 +87,16 @@
         
         & h3, h5 {
             margin-bottom: 0px;
+
+            & a {
+                color: $primary-color;
+
+                &:hover {
+                    color: $dark-color;
+                }
+            }
         }
+
     }
 
     &-control {

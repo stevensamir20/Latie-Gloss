@@ -1,17 +1,128 @@
 .single-product {
     display: grid;
     grid-template-columns: 400px auto;
-    gap: 25px;
+    gap: 80px;
+    justify-content: center;
+    align-items: center;
 }
-.img-container {
-    width: 400px;
-    height: 400px;
-}
-.product-img img {
+.img-container, .product-img img {
     width: 400px;
     height: 400px;
 }
 .carousel-control-next-icon, .carousel-control-prev-icon {
     color: $dark-color;
     font-size: 30px;
+}
+.prod-container {
+    width: 400px;
+}
+.prod {
+    &-desc {
+        margin: 10px 0;
+        font-size: 22px;
+    }
+
+    &-color {
+        @include flex(flex-start,center);
+        font: 25px bold;
+        margin: 10px 0;
+
+        &-show {
+            display: inline-block;
+            height: 20px;
+            width: 150px;
+            border: 1px solid black;
+            border-radius: 5px;
+        }
+    }
+
+    &-type {
+        font: 25px bold;
+        margin: 10px 0;
+    }
+
+    &-control {
+        display: grid;
+        grid-template-columns: 30% calc(70% - 15px);
+        gap: 15px;
+        margin: 15px 0;
+        align-items: center;
+
+        &-amount {
+            @include flex(center,center);
+
+            &-icon {
+                font-size: 40px;
+                color: $primary-color;
+                cursor: pointer;
+                margin: 0 8px;
+
+                &:hover {
+                    color: $dark-color;
+                }
+            }
+
+            & span {
+                color: $primary-color;
+                font-size: 30px;
+                font-weight: bold;
+            }
+        }
+    }
+
+    &-btn {
+        border: none;
+        border-radius: 15px;
+        background-color: $primary-color;
+        color: $main-color;
+        height: 40px;
+        @include flex(center,center);
+        font: 20px bold;
+        
+        &:hover {
+            background-color: $dark-color;
+            color: $main-color;
+        }
+
+        & span {
+            padding-top: 5px;
+            letter-spacing: 1px;
+        }
+
+        &-disabled {
+            background-color: grey;
+            color: $dark-color;
+
+            &:hover {
+                background-color: grey;
+                color: $dark-color;
+            }
+        }
+    }
+
+    &-buy {
+        width: 100%;  
+        margin: 15px 0;
+    }
+}
+
+@media (max-width: 900px) {
+    .single-product {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 15px;
+        margin-top: -25px;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 410px) {
+    .img-container, .product-img img {
+        width: calc(100vw - 20px);
+        height: calc(100vw - 20px);
+    }
+
+    .prod-container {
+        width: calc(100vw - 20px);
+    }
 }
