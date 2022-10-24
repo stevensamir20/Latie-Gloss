@@ -1,0 +1,24 @@
+.checkout {
+    &-grid {
+        display: grid;
+        grid-template-columns: 60% 40%;
+        margin-top: 50px;
+    }
+    
+    &-user {
+
+    }
+
+    &-cart {
+
+    }
+}
+
+@media (max-width: 767px) {
+    .checkout {
+        &-grid {
+            grid-template-columns: 100%;
+            margin-top: 20px;
+        }
+    }
+ }

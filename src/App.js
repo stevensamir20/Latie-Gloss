@@ -13,6 +13,9 @@ import { ProductPage } from './Components/Products Page/SingleProduct';
 import { ShippingPage } from './Components/Other Pages/Shipping';
 import { ContactUsPage } from './Components/Other Pages/ContactUs';
 import { AboutUsPage} from './Components/Other Pages/AboutUs';
+import { Checkout } from './Components/Checkout Page/Checkout';
+import { NotFound } from './Components/Other Pages/NotFound';
+import { Final } from './Components/Final Page/Final';
 
 function App() {
   return (
@@ -24,13 +27,15 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="products" element={<Products />} />
         <Route path="products/:productId" element={<ProductPage />} />
-        <Route path="profile" element={<h1>Profile Page</h1>} />
+        {/* <Route path="profile" element={<h1>Profile Page</h1>} />
         <Route path="favorites" element={<h1>Favorites Page</h1>} />
-        <Route path="cart" element={<h1>Shopping Cart</h1>} />
+        <Route path="cart" element={<h1>Shopping Cart</h1>} /> */}
         <Route path="about" element={<AboutUsPage />} />
         <Route path="contact" element={<ContactUsPage />} />
         <Route path="shipping" element={<ShippingPage />} />
-        <Route path="*" element={<h1>404 Page Is Not Found</h1>} />
+        <Route path="checkout" element={<Checkout />} />
+        <Route path="success" element={<Final />}/>
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
     </div>

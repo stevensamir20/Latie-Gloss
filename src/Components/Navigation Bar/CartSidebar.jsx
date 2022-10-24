@@ -15,7 +15,7 @@ export const CartSidebar = () => {
   const cartItemsNumber = 
   cartContext.items.reduce((currentNumber, item) => { return currentNumber + item.amount;}, 0);
   const totalAmount = cartContext.totalAmount
-  const cartEmpty = cartContext.items.length > 0;
+  const cartEmpty = cartContext.items.length === 0;
 
   // Using a function, redux and a custom hook to close the search sidebar upon clicking outside
   const cartOpen = useSelector(state => state.cart)
@@ -41,7 +41,7 @@ export const CartSidebar = () => {
           <span className="cart-header-text">Shopping Cart</span>
         </div>
         <ul className='navbar-cart-items'>
-        { !cartEmpty && 
+        { cartEmpty && 
           <div className="cart-empty">
             <h3 className="cart-empty-text">Hello, Welcome Back!</h3> 
             <h5 className="cart-empty-text">
@@ -106,7 +106,7 @@ export const CartSidebar = () => {
           )
         })
         }
-        { cartEmpty && 
+        { !cartEmpty && 
           <div className="cart-final">
             <div className="cart-final-text">
               <h2>Items Count:</h2>
@@ -120,7 +120,7 @@ export const CartSidebar = () => {
         }
         </ul>
         <div className="sidebar-close">
-          { cartEmpty && 
+          { !cartEmpty && 
             <Link 
              onClick={() => dispatch(hideCartSidebar())} 
              to="/checkout" 
