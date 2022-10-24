@@ -81,7 +81,7 @@ const cartReducer = (state, action) => {
 
 export const CartProvider = (props) => {
 
-    const [cartState, dispatchCartAction] = useReducer(cartReducer,[], cartInitializer)
+    const [cartState, dispatchCartAction] = useReducer(cartReducer, defaultCartState, cartInitializer)
 
     useEffect(() => {
         localStorage.setItem("localCart", JSON.stringify(cartState));

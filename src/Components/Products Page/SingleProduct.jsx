@@ -11,10 +11,10 @@ export const ProductPage = () => {
 
   const cartContext = useContext(CartContext);
   const { productId } = useParams();
-  const [product, setProduct] = useState();
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState("");
-  const [prodAmount, setProdAmount] = useState();
+  const [ product, setProduct ] = useState();
+  const [ loading, setLoading ] = useState(true);
+  const [ error, setError ] = useState("");
+  const [ prodAmount, setProdAmount ] = useState();
   const inStock = product?.price > 0;
 
   useEffect(() => {

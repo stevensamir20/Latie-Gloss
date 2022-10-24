@@ -43,14 +43,23 @@ export const CartSidebar = () => {
         <ul className='navbar-cart-items'>
         { !cartEmpty && 
           <div className="cart-empty">
-            <span className="cart-empty-text">Your cart is empty shop now to add more products!</span> 
-            <Link to="/products" className='cart-empty-link'>shop now</Link>
+            <h3 className="cart-empty-text">Hello, Welcome Back!</h3> 
+            <h5 className="cart-empty-text">
+              Your shopping cart is empty. 
+              <br />
+              Shop now to add products to your cart!
+            </h5> 
+            <Link 
+             to="/products" 
+             onClick={() => dispatch(hideCartSidebar())} 
+             className='cart-empty-link'>
+              <button>SHOP NOW</button>
+            </Link>
           </div>
         }
         {cartContext.items.map((item) => {
           return (
-          <div key={item.id}>
-            <li className="cart-item">
+            <li className="cart-item" key={item.id}>
               <div className="cart-item-img">
                 <img src={item.image} alt="Product" />
               </div>
@@ -94,20 +103,28 @@ export const CartSidebar = () => {
                 </div>
               </div>
             </li>
-          </div>
           )
         })
         }
-        </ul>
         { cartEmpty && 
           <div className="cart-final">
-            <div className="cart-final-amount"><h1>Items count: {cartItemsNumber}</h1></div>
-            <div className="cart-final-price"><h1>Total price: {totalAmount}</h1></div>
+            <div className="cart-final-text">
+              <h2>Items Count:</h2>
+              <h2>{cartItemsNumber} Items</h2>
+            </div>
+            <div className="cart-final-text">
+              <h2>Total Price:</h2>
+              <h2>LE {totalAmount}</h2>
+            </div>
           </div>
         }
+        </ul>
         <div className="sidebar-close">
           { cartEmpty && 
-            <Link onClick={() => dispatch(hideCartSidebar())} to="#" className='cart-order'>
+            <Link 
+             onClick={() => dispatch(hideCartSidebar())} 
+             to="/checkout" 
+             className='cart-order'>
               <span className="sidebar-close-text">ORDER</span>
             </Link>
           }

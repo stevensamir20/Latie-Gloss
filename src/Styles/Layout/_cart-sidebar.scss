@@ -123,3 +123,40 @@
         }
     }
 }
+
+// Styles when no items are in the cart
+.cart-empty {
+    margin-top: 50px;
+
+    &-text {
+        text-align: center;
+        margin: 20px 0px;
+    }
+
+    &-link {
+        @include flex(center,center);
+        font: 18px bold;
+
+        & button {
+            height: 60px;
+            width: 150px;
+            border-radius: 10px;
+            color: $light-color;
+            background-color: $primary-color;
+
+            &:hover {
+                color: $primary-color;
+                background-color: $secondary-color;
+            }
+        }
+    }
+}
+
+// Styles of the final products amount / price in the cart
+.cart-final {
+    margin: 50px 10px 0 10px;
+
+    &-text {
+        @include flex(space-between, center)
+    }
+}
