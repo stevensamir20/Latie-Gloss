@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/latie-gloss/static/css/main.a4063274.css",
+    "main.js": "/latie-gloss/static/js/main.7952de07.js",
+    "index.html": "/latie-gloss/index.html",
+    "main.a4063274.css.map": "/latie-gloss/static/css/main.a4063274.css.map",
+    "main.7952de07.js.map": "/latie-gloss/static/js/main.7952de07.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a4063274.css",
+    "static/js/main.7952de07.js"
+  ]
+}
