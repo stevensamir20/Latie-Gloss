@@ -1,44 +1,14 @@
-import React, {useState, useEffect} from 'react'
-import axios from 'axios';
-import { Loader } from "../Loader/Loader"
+import React from 'react'
+import { FeesData } from '../../Database/FeesData'
 
 export const ShippingPage = () => {
 
-  
-  const [fees, setFees] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState("");
-
-  useEffect(() => {
-    setLoading(true);
-    setError("");
-    axios
-      .get("http://localhost:3000/getFees")
-      .then((res) => setFees(res.data))
-      .catch(() => setError("Couldn't get shipping prices, try again later!"))
-      .finally(() => setLoading(false));
-  }, []);
-
-  // If promise is rejected
-  if (error) {
-    return (
-      <div className="alert alert-danger error">
-        <h3>{error}</h3>
-      </div>
-    );
-  }
-  
   return (
     <div className="container">
     <div id="shipping-page">
       <h2>Shipping Fees</h2>
       <div className="shipping-fees">
-      { loading &&
-        <div className="loader">
-          <Loader /> <span>Loading shipping prices..</span>
-        </div>
-      }
-      { fees.map((item) => {
+      { FeesData.map((item) => {
           return(
           <div className="shipping-fees-card" key={item.id}>
             <span className="shipping-fees-title">{item.area}</span><hr />

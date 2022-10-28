@@ -5,7 +5,8 @@ const CartContext = React.createContext({
     totalAmount: 0,
     addItem: (item) => {},
     removeItem: (itemId) => {},
-    deleteItem: (itemId) => {}
+    deleteItem: (itemId) => {},
+    clearCart: () => {}
 });
 
 const defaultCartState = {
@@ -76,6 +77,16 @@ const cartReducer = (state, action) => {
         }
     }
 
+    if (action.type === 'CLEAR_CART') {
+        const clearedItems = [];
+        const clearedAmount = 0;
+    
+        return {
+            items: clearedItems,
+            totalAmount: clearedAmount
+        }
+    }
+
     return cartInitializer;
 }
 
@@ -108,13 +119,20 @@ export const CartProvider = (props) => {
             id: itemId
         });
     };
+
+    const clearAllCart = () => {
+        dispatchCartAction({
+            type: 'CLEAR_CART'
+        });
+    };
     
     const cartContext = {
         items: cartState.items,
         totalAmount: cartState.totalAmount,
         addItem: addItemToCart,
         removeItem: removeItemFromCart,
-        deleteItem: deleteItemFromCart
+        deleteItem: deleteItemFromCart,
+        clearCart: clearAllCart
     }
 
     return <CartContext.Provider value={cartContext}> {props.children} </CartContext.Provider>

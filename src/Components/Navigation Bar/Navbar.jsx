@@ -54,7 +54,7 @@ export const Navbar = () => {
 
     <nav id="navbar" className={navRef.current}>
       <div className="navbar-menu">
-      <Link to="#" >
+      <Link to="#">
         <FontAwesomeIcon onClick={() => dispatch(showMenuSidebar())} icon={faBars} style={{marginLeft: '30px'}} size="2xl" className="nav-icon" />
       </Link>
       </div>

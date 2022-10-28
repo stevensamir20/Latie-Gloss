@@ -1,0 +1,30 @@
+.final {
+    height: calc( 100vh - 250px );
+    width: 100%;
+    @include flex(center,center);
+    margin: auto;
+    background-image: url("https://i.im.ge/2022/09/19/1sUk29.1.png");
+    background-repeat: repeat;
+    background-size: 10%;
+
+    &-wrapper {
+        @include flex(center,center);
+        gap: 10px;
+        flex-direction: column;
+        background-color: $light-color;
+        padding: 40px;
+        border-radius: 40px;
+        color: $primary-color;
+        text-align: center;
+
+        &-text {
+           display: flex;
+           justify-content: center;
+        }
+
+        &-icon {
+            color: $primary-color;
+            margin-right: 10px
+        }
+    }
+}

@@ -13,14 +13,14 @@ export const ContactUsPage = () => {
             </p>
             <span className='contact-policy-title'>
               Instagram: 
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"> 
-                @latie
+              <a href="https://instagram.com/latie_gloss?igshid=YmMyMTA2M2Y=" target="_blank" rel="noopener noreferrer"> 
+                @latie_gloss
               </a>
             </span>
             <span className='contact-policy-title'>
-              Facebook: 
-              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer"> 
-                groupname
+              Facebook Group: 
+              <a href="https://www.facebook.com/groups/128609392442462/?ref=share" target="_blank" rel="noopener noreferrer"> 
+                Latie for natural products
               </a>
             </span>
             <span className='contact-policy-title'>

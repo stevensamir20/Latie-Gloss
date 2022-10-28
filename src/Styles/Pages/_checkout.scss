@@ -1,24 +1,205 @@
 .checkout {
     &-grid {
         display: grid;
-        grid-template-columns: 60% 40%;
+        grid-template-columns: 55% calc(45% - 20px);
         margin-top: 50px;
-    }
-    
-    &-user {
-
-    }
-
-    &-cart {
-
+        gap: 20px;
     }
 }
-
 @media (max-width: 767px) {
     .checkout {
         &-grid {
             grid-template-columns: 100%;
             margin-top: 20px;
         }
+
+        &-user {
+            grid-row: 2;
+        }
+
+        &-cart {
+            grid-row: 1;
+        }
+    }
+
+    .mobile-top-border {
+        padding-top: 20px;
+        border-top: 0.5px dashed rgb(66, 66, 66);
     }
  }
+ .shipping-details-h1 {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 0.5px dashed rgb(66, 66, 66);
+}
+.required:after {
+    content:" *";
+    color: red;
+}
+input[type="radio"] + label {
+    display: block;
+}
+input[type="radio"] +  label + span {
+    display: none;
+}
+input[type="radio"]:checked + label + span {
+    display: block;
+}
+.checkout-cart {
+    &-items {
+        @include flex(center, flex-start);
+        flex-direction: column;
+        gap: 10px;
+        padding: 0;
+    }
+}
+.checkout-cart-item {
+    display: grid;
+    grid-template-columns: 65px auto 85px;
+    gap: 10px;
+    width: 100%;
+    height: 70px;
+    background-color: $main-color;
+    border-radius: 20px;
+    color: $primary-color;
+    padding: 5px 10px;
+
+    &-img {
+        @include flex(center,center);
+        width: 100%;
+        height: 100%;
+        & img {
+            width: 50px;
+            height: 50px;
+        }
+    }
+
+    &-text {
+        @include flex(space-evenly,flex-start);
+        flex-direction: column;
+        
+        & h5, h6 {
+            margin-bottom: 0px;
+
+            & a {
+                color: $primary-color;
+
+                &:hover {
+                    color: $dark-color;
+                }
+            }
+        }
+
+    }
+
+    &-control {
+        @include flex(center,center);
+        flex-direction: column;
+
+        &-amount {
+            @include flex(center,center);
+            gap: 5px;
+        }
+
+        & span {
+            font-size: 22px;
+        }
+
+        &-quantity {
+            @include flex(center,center);
+            
+            & h5 {
+                margin: 5px 0;
+            }
+        }
+
+        &-delete {
+            @include flex(center,center);
+        }
+    }
+}
+.checkout-cart-icon:hover {
+    cursor: pointer;
+    color: black;
+}
+.checkout-cart-empty {
+    @include flex(center,center);
+    flex-direction: column;
+    height: calc(100% - 50px);
+
+    &-text {
+        text-align: center;
+        margin: 20px 0px;
+    }
+
+    &-link {
+        @include flex(center,center);
+        font: 25px bold;
+
+        & button {
+            height: 60px;
+            width: 200px;
+            border-radius: 10px;
+            color: $light-color;
+            background-color: $primary-color;
+
+            &:hover {
+                color: $primary-color;
+                background-color: $secondary-color;
+            }
+        }
+    }
+}
+.checkout-price {
+    margin-top: 25px;
+
+    &-flex{
+        @include flex(space-between,center)
+    }
+
+    &-sub{
+        margin-top: 10px;
+    }
+
+    &-total {
+        margin-top: 10px;
+    }
+}
+
+.form-group {
+    margin-top: 10px !important;
+}
+.second-address {
+    margin-top: 10px;
+}
+.checkout-pay {
+    @include flex(center, center);
+    margin: 20px 0px;
+   
+    &-button {
+        font: 25px bold;
+        height: 60px;
+        width: 200px;
+        border-radius: 10px;
+        color: $light-color;
+        background-color: $primary-color;
+
+        &:hover {
+            color: $primary-color;
+            background-color: $secondary-color;
+        }
+
+        &-disabled {
+            color: $light-color;
+            background-color: grey;
+
+            &:hover {
+                color: $light-color;
+                background-color: grey;
+            }
+        }
+    }
+}
+.instructions {
+    margin-top: 5px;
+}

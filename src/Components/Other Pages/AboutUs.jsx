@@ -36,7 +36,7 @@ export const AboutUsPage = () => {
                     Website
                 </Link>
              or our
-                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"> 
+                <a href="https://instagram.com/latie_gloss?igshid=YmMyMTA2M2Y=" target="_blank" rel="noopener noreferrer"> 
                     Instagram Page.
                 </a>
             </p>

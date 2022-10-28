@@ -6,6 +6,7 @@ import { legacy_createStore } from 'redux';
 import allReducers from './Redux/Reducers/combined'
 import { Provider } from 'react-redux'
 import { CartProvider } from './Store/cart-context';
+import ScrollToTop from './Hooks/ScrollToTop';
 
 const store = legacy_createStore(allReducers);
 
@@ -14,6 +15,7 @@ root.render(
   <Provider store={store}>
     <CartProvider>
       <BrowserRouter>
+        <ScrollToTop />
         <App />
       </BrowserRouter>
     </CartProvider>

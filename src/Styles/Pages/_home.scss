@@ -1,16 +1,110 @@
 .carousel-button-text {
-    font-size: 30px;
+   font-size: 30px;
  }
  button.btn-outline-light {
-    color: $primary-color;
-    border-color: $primary-color;
+   color: $primary-color;
+   border-color: $primary-color;
  }
  button.btn-outline-light:hover, 
  button.btn-outline-light:active, 
  button.btn-outline-light:disabled, 
  button.btn-outline-light:visited, 
  button.btn-outline-light:focus {
-    color:$light-color;
-    border-color: $primary-color;
-    background-color: $primary-color;
+   color:$light-color;
+   border-color: $primary-color;
+   background-color: $primary-color;
+ }
+ .home-categories-wrapper {
+   width: 100%;
+   height: auto;
+   background: rgb(251,63,231);
+   background: radial-gradient(circle, rgba(225, 153, 211, 0.376) 0%, rgba(189,47,100,1) 100%);
+   text-align: center;
+   padding: 50px 0px;
+
+   &-link {
+      & button {
+         font-size: 25px;
+         border-radius: 20px;
+         padding: 10px 15px;
+      }
+   }
+ }
+ .home-categories {
+   @include flex(space-evenly,center);
+   flex-wrap: wrap;
+   padding-top: 20px;
+
+   &-box {
+      width: 200px;
+      height: 200px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 0 0 100px inset, 0 0 5px grey;
+      transition: box-shadow 1s;
+      float: left;
+      margin: 10px;
+      
+      &::after {
+         width: 80%;
+         height: 80%;
+         display: block;
+         white-space: pre;
+         font: 15pt 'sigmar one';
+         color: white;
+         border: 2px solid;
+         text-align: center;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         transition: opacity 1s .5s;
+      }
+
+      &:hover {
+         box-shadow: 0 0 0 5px inset, 0 0 5px grey, 0 0 10px grey inset;
+         transition: box-shadow 1s;
+
+         &::after {
+            opacity: 0;
+            transition: opacity .5s;
+         }
+      }
+   }
+
+   #gloss-home-cateogry {
+      background-image: url("https://i.ibb.co/31Xk9Bv/310339128-619140373195003-2540051032751191722-n.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      color: rgba(159, 0, 132, 0.9);
+
+      &::after {
+         content: 'Lip Gloss';
+         font-size: 25px;
+      }
+   }
+
+   #balm-home-cateogry {
+      background-image: url("https://i.ibb.co/6Y0vw5c/145705755-188519066360178-5664582765953714224-n.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      color: rgba(156, 60, 0, 0.9);
+
+      &::after {
+         content: 'Lip Balm';
+         font-size: 25px;
+      }
+   }
+
+   #oil-home-cateogry {
+      background-image: url("https://i.ibb.co/89krv8w/312918713-638004861039747-4811335315035802094-n.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      color: rgba(206, 6, 99, 0.9);
+
+      &::after {
+         content: 'Lip Oil';
+         font-size: 25px;
+      }
+   } 
  }

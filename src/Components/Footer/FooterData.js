@@ -5,17 +5,17 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 export const FooterSocialData = [
     {
         title: 'Instagram',
-        path: 'https://www.instagram.com',
+        path: 'https://instagram.com/latie_gloss?igshid=YmMyMTA2M2Y=',
         icon: <FontAwesomeIcon className="footer-social-list-icon" size="xl" icon={faInstagram} />
     },
     {
         title: 'Facebook',
-        path: 'https://www.facebook.com',
+        path: 'https://www.facebook.com/groups/128609392442462/?ref=share',
         icon: <FontAwesomeIcon className="footer-social-list-icon" size="xl" icon={faFacebookF} />
     },
     {
         title: 'Tiktok',
-        path: 'https://www.tiktok.com',
+        path: 'https://www.tiktok.com/@latiegloss?_t=8Wsx5VGRDeP&_r=1',
         icon: <FontAwesomeIcon className="footer-social-list-icon" size="xl" icon={faTiktok} />
     }
 ]

@@ -1,39 +1,22 @@
 import { React, useEffect, useState, useContext } from "react";
-import { useParams } from "react-router-dom";
-import axios from "axios";
-import { Loader } from "../Loader/Loader";
+import { useNavigate, useParams } from "react-router-dom";
 import CartContext from "../../Store/cart-context";
+import { ProductsData } from "../../Database/ProductsData";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSquarePlus, faSquareMinus } from '@fortawesome/free-solid-svg-icons';
 
 export const ProductPage = () => {
 
-  const cartContext = useContext(CartContext);
   const { productId } = useParams();
+  const navigate = useNavigate();
+  const cartContext = useContext(CartContext);
   const [ product, setProduct ] = useState();
-  const [ loading, setLoading ] = useState(true);
-  const [ error, setError ] = useState("");
-  const [ prodAmount, setProdAmount ] = useState();
+  const [ prodAmount, setProdAmount ] = useState(1);
   const inStock = product?.price > 0;
 
   useEffect(() => {
-    setLoading(true);
-    setError("");
-    axios
-      .get("http://localhost:3000/getProducts/" + productId)
-      .then((res) => {
-        setProduct(res.data);
-        if(res.data.price > 0) {
-          setProdAmount(1);
-        } else {setProdAmount(0)}
-      })
-      .catch(() => {
-        setError("Couldn't find this product, try again later!");
-      })
-      .finally(() => {
-        setLoading(false);
-      });
+    setProduct(ProductsData.find((item) => { return item.id === +productId }))
   }, [productId]);
 
   const incrementAmount = () => {
@@ -65,21 +48,16 @@ export const ProductPage = () => {
     })
   }
   
-  // If promise is on pending state
-  if (loading) {
-    return (
-      <div className="loader">
-        <Loader /> <span>Loading product...</span>
-      </div>
-    );
+  const buyItNow = (item) => {
+    addToCart(item);
+    navigate('/checkout')
   }
 
-  // If promise is rejected
-  if (error) {
+  // If there is no product
+  if (!product) {
     return (
       <div className="alert alert-danger error">
-        <h3>{error}</h3>
-        <h3>Product with id: "{productId}" is not found</h3>
+        <h3>Product not found</h3>
       </div>
     );
   }
@@ -125,7 +103,10 @@ export const ProductPage = () => {
           icon={faSquareMinus} 
           className="prod-control-amount-icon" 
           onClick={decrementAmount}/>
-            <span><b>{prodAmount}</b></span>
+          {inStock ? 
+            ( <span><b>{prodAmount}</b></span>) : 
+            ( <span><b>0</b></span>)
+          }
           <FontAwesomeIcon 
           icon={faSquarePlus} 
           className="prod-control-amount-icon"
@@ -133,7 +114,7 @@ export const ProductPage = () => {
         </div>
         <button 
         onClick={() => {addToCart(product)}} 
-        className={inStock ? "prod-control-button prod-btn": "prod-control-button prod-btn prod-btn-disabled" } 
+        className={`"prod-control-button" ${inStock ? 'prod-btn ': "prod-btn prod-btn-disabled" }`}
         disabled={!inStock}
         >
           <span>ADD TO CART</span>
@@ -141,7 +122,10 @@ export const ProductPage = () => {
       </div>
       <button 
       className={inStock ? "prod-buy prod-btn": "prod-buy prod-btn prod-btn-disabled" } 
-      disabled={!inStock}><span>BUY IT NOW</span></button>
+      onClick={() => {buyItNow(product)}}
+      disabled={!inStock}>
+        <span>BUY IT NOW</span>
+      </button>
     </div>
     </div>
   </div>
