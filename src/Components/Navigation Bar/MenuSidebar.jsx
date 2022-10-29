@@ -4,6 +4,8 @@ import { useOutsideClick } from '../../Hooks/OutsideClick';
 import { useSelector, useDispatch } from 'react-redux';
 import { hideMenuSidebar } from '../../Redux/Actions/actions'
 import { MenuSidebarData } from './MenuSidebarData'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCircleXmark } from '@fortawesome/free-solid-svg-icons';
 
 export const MenuSidebar = () => {
 
@@ -21,6 +23,10 @@ export const MenuSidebar = () => {
     <div ref={menuRef} className={menuOpen ? 'navbar-menu-active' : 'navbar-menu-closed'}>
       <div className='navbar-menu-header'>
         <span className="menu-header-text">MENU</span>
+        <FontAwesomeIcon 
+            icon={faCircleXmark} className='mobile-close-icon'
+            onClick={() => dispatch(hideMenuSidebar())}
+          />
       </div>
       <ul className='navbar-menu-items'>
       {MenuSidebarData.map((item, id) => {

@@ -6,7 +6,8 @@ import { hideCartSidebar } from '../../Redux/Actions/actions'
 import CartContext from '../../Store/cart-context';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrash, faSquarePlus, faSquareMinus } from '@fortawesome/free-solid-svg-icons';
+import {faTrash, faSquarePlus, faSquareMinus, faCircleXmark} from '@fortawesome/free-solid-svg-icons';
+
 
 export const CartSidebar = () => {
 
@@ -39,6 +40,10 @@ export const CartSidebar = () => {
       <div ref={cartRef} className={cartOpen ? 'navbar-cart-active' : 'navbar-cart-closed'}>
         <div className='navbar-cart-header'>
           <span className="cart-header-text">Shopping Cart</span>
+          <FontAwesomeIcon 
+            icon={faCircleXmark} className='mobile-close-icon'
+            onClick={() => dispatch(hideCartSidebar())}
+          />
         </div>
         <ul className='navbar-cart-items'>
         { cartEmpty && 
@@ -115,6 +120,14 @@ export const CartSidebar = () => {
             <div className="cart-final-text">
               <h2>Total Price:</h2>
               <h2>LE {totalAmount}</h2>
+            </div>
+            <div className='mobile-order-now'>
+              <Link 
+               to="/checkout" 
+               onClick={() => dispatch(hideCartSidebar())} 
+               className='cart-empty-link'>
+                <button className='mobile-order-now-button'>Procced to Checkout</button>
+              </Link>
             </div>
           </div>
         }

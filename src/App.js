@@ -25,11 +25,9 @@ function App() {
       <CartSidebar />
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/latie-gloss" element={<HomePage />} />
         <Route path="products" element={<Products />} />
         <Route path="products/:productId" element={<ProductPage />} />
-        {/* <Route path="profile" element={<h1>Profile Page</h1>} />
-        <Route path="favorites" element={<h1>Favorites Page</h1>} />
-        <Route path="cart" element={<h1>Shopping Cart</h1>} /> */}
         <Route path="about" element={<AboutUsPage />} />
         <Route path="contact" element={<ContactUsPage />} />
         <Route path="shipping" element={<ShippingPage />} />

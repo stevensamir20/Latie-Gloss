@@ -16,6 +16,7 @@ export const useOutsideClick = (callback) => {
     return () => {
       document.removeEventListener('click', handleClick, true);
     };
+    // eslint-disable-next-line
   }, [ref]);
   
   return ref;

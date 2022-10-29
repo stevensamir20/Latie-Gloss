@@ -1,0 +1,26 @@
+@media (max-width: 550px) {
+    .sidebar-close {
+        display: none;
+    }
+    .navbar-cart-header, .navbar-menu-header {
+        justify-content: space-around !important;
+    }
+    .menu-header-text {
+        margin-top: 6px;
+    }
+    .mobile-close-icon {
+        color: $primary-color;
+        font-size: 35px;
+        margin-bottom: 5px;
+    }
+    .mobile-order-now-button {
+        width: 300px !important;
+        font-size: 25px;
+        margin-top: 20px;
+    }
+}
+@media (min-width: 550px) {
+    .mobile-close-icon, .mobile-order-now{
+        display: none;
+    }
+}

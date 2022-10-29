@@ -1,5 +1,5 @@
 import { React, useState, useEffect } from 'react'
-import { Link, useLocation, useNavigate, useSearchParams } from "react-router-dom";
+import { Link, useLocation, useSearchParams } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircle, faMagnifyingGlass, faXmark, faCartPlus } from '@fortawesome/free-solid-svg-icons'
 import { ProductsData } from '../../Database/ProductsData';
@@ -9,7 +9,6 @@ import CartContext from '../../Store/cart-context';
 export const Products = () => {
 
   const location = useLocation()
-  const navigate = useNavigate()
   const [ searchParams, setSearchParams ] = useSearchParams();
   const cartContext = useContext(CartContext)
   const [ filteredProducts, setFilteredProducts ] = useState(ProductsData)
@@ -113,10 +112,11 @@ export const Products = () => {
         <div className="product" key={item.id}>
           <div className="product-info">
             <div className='product-info-hover'>
-              <img 
-               className="product-info-img" src={item.img1} alt={item.title} 
-               onClick={() => {navigate(`/products/${item.id}`)}}
-              />
+              <Link to={`/products/${item.id}`}>
+                <img 
+                 className="product-info-img" src={item.img1} alt={item.title} 
+                />
+              </Link>
                { item.price !== 0 ?(
                 <button onClick={() => {addToCart(item)}}>
                   <FontAwesomeIcon icon={faCartPlus} className='product-info-hover-icon'/>
