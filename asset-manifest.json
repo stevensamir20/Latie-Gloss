@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/latie-gloss/static/css/main.a4063274.css",
-    "main.js": "/latie-gloss/static/js/main.7952de07.js",
+    "main.css": "/latie-gloss/static/css/main.db3e507b.css",
+    "main.js": "/latie-gloss/static/js/main.aac03b2e.js",
     "index.html": "/latie-gloss/index.html",
-    "main.a4063274.css.map": "/latie-gloss/static/css/main.a4063274.css.map",
-    "main.7952de07.js.map": "/latie-gloss/static/js/main.7952de07.js.map"
+    "main.db3e507b.css.map": "/latie-gloss/static/css/main.db3e507b.css.map",
+    "main.aac03b2e.js.map": "/latie-gloss/static/js/main.aac03b2e.js.map"
   },
   "entrypoints": [
-    "static/css/main.a4063274.css",
-    "static/js/main.7952de07.js"
+    "static/css/main.db3e507b.css",
+    "static/js/main.aac03b2e.js"
   ]
 }
